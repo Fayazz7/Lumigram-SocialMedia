@@ -11,23 +11,36 @@
 </head>
 
 <body>
+    {{form.errors}}
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
+          
+            <form action="{% url 'authentication' %}" method="post">
+                {% csrf_token %}
                 <h1>Create Account</h1>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
+                <!-- Display form errors for sign-up -->
+                {% if signup_errors %}
+                <p class="error">{{ signup_errors }}</p>
+                {% endif %}
+                <input type="text" placeholder="Name" name="username" />
+                <input type="email" placeholder="Email" name="email" />
+                <input type="password" placeholder="Password" name="password1" />
+                <input type="password" placeholder="Password" name="password2" />
+                <button type="submit" name="signup" value="Sign Up" >Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="{% url 'authentication' %}" method="post">
+                {% csrf_token %}
                 <h1>Sign in</h1>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <!-- Display form errors for sign-in -->
+                {% if login_errors %}
+                <p class="error">{{ login_errors }}</p>
+                {% endif %}
+                <input placeholder="Email" name="username" />
+                <input type="password" placeholder="Password" name="password" />
                 <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
+                <button type="submit" name="signin" value="Login" >Sign In</button>
             </form>
         </div>
         <div class="overlay-container">
