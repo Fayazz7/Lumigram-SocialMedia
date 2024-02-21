@@ -14,7 +14,7 @@
     {{form.errors}}
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-          
+
             <form action="{% url 'authentication' %}" method="post">
                 {% csrf_token %}
                 <h1>Create Account</h1>
@@ -22,11 +22,11 @@
                 {% if signup_errors %}
                 <p class="error">{{ signup_errors }}</p>
                 {% endif %}
-                <input type="text" placeholder="Name" name="username" />
-                <input type="email" placeholder="Email" name="email" />
-                <input type="password" placeholder="Password" name="password1" />
-                <input type="password" placeholder="Password" name="password2" />
-                <button type="submit" name="signup" value="Sign Up" >Sign Up</button>
+                <input type="text" placeholder="Enter a Username" name="username" />
+                <input type="email" placeholder="Enter your Email" name="email" />
+                <input type="password" placeholder="Enter a Password" name="password1" />
+                <input type="password" placeholder="Confirm Your Password" name="password2" />
+                <button type="submit" name="signup" value="Sign Up">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
@@ -37,10 +37,10 @@
                 {% if login_errors %}
                 <p class="error">{{ login_errors }}</p>
                 {% endif %}
-                <input placeholder="Email" name="username" />
-                <input type="password" placeholder="Password" name="password" />
+                <input placeholder="Enter your Username" name="username" />
+                <input type="password" placeholder="Enter your Password" name="password" />
                 <a href="#">Forgot your password?</a>
-                <button type="submit" name="signin" value="Login" >Sign In</button>
+                <button type="submit" name="signin" value="Login">Sign In</button>
             </form>
         </div>
         <div class="overlay-container">
