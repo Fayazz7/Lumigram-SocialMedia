@@ -35,6 +35,11 @@ class UserAuthView(View):
                     print("Failed")
             else:
                 return render (request,"signup.html",{"signin_form":signin_form})
+            
+class SignOutView(View):
+    def get (self,request,*args, **kwargs):
+        logout(request)
+        return redirect ('authentication')
 
 
 class IndexView(View):
