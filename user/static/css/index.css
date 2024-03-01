@@ -1,0 +1,12 @@
+.card *:not(.btn-primary) {
+    background-color: white;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+.main {
+    background-color: transparent;
+    /* Override body background color */
+    height: 100vh;
+}

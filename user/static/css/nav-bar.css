@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@700&display=swap');
+
+*,
+body {
+    box-sizing: border-box;
+    background-color: #24252a;
+    margin: 0;
+    padding: 0;
+
+}
+
+/* Nav-Bar CSS Starts */
+.home-logo {
+    font-family: "Delius Unicase", cursive;
+    font-weight: 700;
+    font-style: normal;
+    color: #edf0f1;
+    width: 140px;
+    font-size: 24px;
+    padding: 10px 20px;
+    height: auto;
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.home-logo:hover {
+    color: #0088a9;
+}
+
+.nav_link_li,
+a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 2%;
+
+
+}
+
+.nav__link {
+    list-style: none;
+}
+
+.nav__link,
+.nav_link_li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.profile {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.search {
+    padding-left: 16px;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+
+.nav__link,
+.nav_link_li,
+.nav_link_li_a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__link,
+.nav_link_li,
+.nav_link_li_a:hover {
+    color: #0088a9;
+}
+
+
+.dropdown-menu a.drop-nav-item {
+    color: white;
+}
+
+.dropdown-menu a.drop-nav-item:hover {
+    background-color: #0088a9;
+}
+
+header *:not(.nav-drop) {
+    background-color: #24252a;
+}
+
+.nav-toggle::after {
+    display: none;
+}
+
+/* Nav-Bar CSS End */

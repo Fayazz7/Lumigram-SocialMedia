@@ -1,15 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Index</title>
+    {% include "header.html" %}
+    <link rel="stylesheet" href="{% static 'css/nav-bar.css' %}">
 </head>
 
 <body>
-    <h1>Hello World {{request.user}} </h1>
-    <a href="{% url 'sign-out' %}">Log Out</a>
+    {% include "nav-bar.html" %}
 </body>
 
 </html>
