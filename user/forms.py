@@ -13,3 +13,14 @@ class RegistrationForm(UserCreationForm):
 class LogInForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField()
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        exclude=["user"]
+        
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model=UserProfile
+        exclude=["user"]

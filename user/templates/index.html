@@ -7,11 +7,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Index</title>
     {% include "header.html" %}
-    <link rel="stylesheet" href="{% static 'css/nav-bar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 
 <body>
     {% include "nav-bar.html" %}
+    <div class="main pt-5">
+        <div class="container card-main pt-5">
+            {% for p in post %}
+            <div class="card mx-auto my-3 border p-2  shadow" style="width: 30%;">
+                <div class="d-flex">
+                    {% if p.user.profile.user_pic is not None %}
+                    <img src="{{p.user.profile.user_pic.url}}" alt="" height="36px" width="36px"
+                        class=" rounded-circle ">
+                    {% else %}
+                    <img src="{% static 'images/Angular.jpeg' %}" alt="" height="36px" width="36px"
+                        class=" rounded-circle ">
+                    {% endif %}
+                    <h5 class="ms-2 mt-1 fs-5"><a href="" class="text-black"> {{p.user}} </a></h5>
+                    {% if p.user != request.user %}
+                    <form class="ms-1 mt-1" method="post" action=" {% url 'connect' p.user.id %} ">
+                        {% csrf_token %}
+                        {% if p.user.profile.user in request.user.profile.following.all %}
+                        <button href="" class="btn btn-primary " name="connect" value="unfollow" type="submit"
+                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Following</button>
+                        {% else %}
+                        <button href="" class="btn btn-primary " name="connect" value="follow" type="submit"
+                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Follow</button>
+                        {% endif %}
+                    </form>
+                    {% endif %}
+                    {% if p.user == request.user %}
+                    <div class="ms-auto mt-1 dropdown">
+                        <a href="#" class="dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="{% static 'images/dots.png' %}" alt="" height="25px" width="28px">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                <img src="{{p.image}}" alt="" class="card-img-top mt-2" height="400px">
+                <div class="card-body d-flex ">
+                    <a href=""><img src="{% static 'images/Like.png' %}" alt="" height="25px" width="28px" class=""></a>
+                    <a href=""><img src="{% static 'images/Comment.png' %}" alt="" height="23px" width="23px"
+                            class="ms-3"></a>
+                    <a href="" class="ms-auto"><img src="{% static 'images/save-big.png' %}" alt="" class=""
+                            height="25px" width="28px"></a>
+                </div>
+                <span class=" fw-medium  ms-3" style="font-size: 12px;">1234 Likes</span>
+                <span class="mt-1 ms-3" style="font-size: 14px;">
+                    <a class="fw-bolder text-black pe-1 " style="font-size: 12px;">{{p.user}}</a>{{p.caption}}
+                </span>
+                <span style="font-size: 14px;" class="ms-3 mt-1">View All 856 Comments</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 
 </html>
